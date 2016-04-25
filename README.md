@@ -9,7 +9,9 @@ This extension works on Brackets current document. The file doesn't need to be s
 
 Click on the **Brackets to Photoshop** button on your right sidebar, or hit **Cmd-Shift-P**
 
-The extension will determine your latest Photoshop version installed and execute the script on it.
+![br-ps-icon](https://raw.githubusercontent.com/JavierAroche/brackets-to-photoshop/master/images/br-ps-icon.jpg)
+
+The extension will determine your latest Photoshop version installed and execute the script in it.
 
 Currently supported Photoshop versions:
 
@@ -20,6 +22,8 @@ Currently supported Photoshop versions:
 - Adobe Photoshop CS5
 
 A console will show up at the bottom displaying any messages returned from Photoshop. Errors will display in red.
+
+![br-ps-console](https://raw.githubusercontent.com/JavierAroche/brackets-to-photoshop/master/images/br-ps-console.jpg)
 
 ### License
 MIT-licensed
