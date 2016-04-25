@@ -1,0 +1,65 @@
+#br-ps {
+    background-image: url(icons/br-ps.svg);
+    background-position: center center;
+}
+
+#br-ps-panel {
+    z-index: 100;
+}
+
+#br-ps-panel .title {
+    line-height: 25px;
+    padding-left: 25px;
+    background: url('icons/br-ps.svg') no-repeat left top transparent;
+}
+
+#br-ps-panel #clearBtn {
+    float: right;
+    margin-right: 24px;
+    margin-top: 0px;
+    outline: none;
+    box-shadow: none;
+}
+
+#psVersionToolbar {
+    height: 17px;
+    line-height: 15px;
+    background-color: #1d1d1d;
+}
+
+#psVersion {
+    padding-left: 5px;
+    font-size: 11px;
+    font-kerning: 50;
+    color: grey;
+}
+
+#br-ps-panel .resizable-content {
+    overflow: scroll;
+    height: 100px;
+}
+
+#br-ps-panel .resizable-content ul {
+    margin-left: 5px;
+    padding: 0 0;
+}
+
+#br-ps-panel li.log {
+    list-style-type: none;
+    color: #ffffff;
+}
+
+#br-ps-panel li.warn {
+    list-style-type: none;
+    color: #e4d700;
+}
+
+#br-ps-panel li.error {
+    list-style-type: none;
+    color: #e40000;
+}
+
+#br-ps-panel .close {
+    outline: none;
+    box-shadow: none;
+}
