@@ -9,7 +9,7 @@
     "license": "MIT",
     "categories": "utility",
     "engines": {
-        "brackets": "<=0.34.0"
+        "brackets": ">=0.44.0"
     },
     "keywords": [
         "jsx", "extendscript", "photoshop", "osascript"
