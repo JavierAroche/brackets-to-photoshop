@@ -41,6 +41,10 @@
     function runJSX(document) {
         var psVersion = identifyPhotoshopVersion();
         var path = saveTmpFile(document);
+        
+        // Clear log file
+        clearLogFile();
+        
                                 
         if (psVersion) {
             osa(
@@ -73,6 +77,20 @@
         // Save to tmp file
         fs.writeFileSync(tmpFile, document);
         return tmpFile;
+    }
+    
+   /**
+     * @private
+     * Function to save clear the log file at the beginning of the script
+     * @param {string} Text to be saved to tmp file.
+     * @return {string} Path to tmp file.
+     */
+    function clearLogFile() {
+        // Locate tmp file
+        var logFile = path.resolve(__dirname, '../tmp/log');
+        // Save to tmp file
+        fs.writeFileSync(logFile, "");
+        return logFile;
     }
     
    /**
