@@ -1,0 +1,5 @@
+# Ignoring dependency folders
+node_modules
+
+# Ignoring specific files
+tmp
