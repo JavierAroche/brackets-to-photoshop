@@ -101,7 +101,7 @@
      */
     function identifyPhotoshopVersion() {
         // Possible Photoshop Versions
-        var psVersions = ['Adobe Photoshop CC 2017', 'Adobe Photoshop CC 2016', 'Adobe Photoshop CC 2015', 'Adobe Photoshop CC 2014', 'Adobe Photoshop CS6', 'Adobe Photoshop CS5'],
+        var psVersions = ['Adobe Photoshop CC 2015.5', 'Adobe Photoshop CC 2015', 'Adobe Photoshop CC 2014', 'Adobe Photoshop CS6', 'Adobe Photoshop CS5'],
             foundPSVersion = false;
         
         for (var i = 0; i < psVersions.length; i++){
