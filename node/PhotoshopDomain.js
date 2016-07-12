@@ -41,6 +41,10 @@
     function runJSX(document) {
         var psVersion = identifyPhotoshopVersion();
         var path = saveTmpFile(document);
+        
+        // Clear log file
+        clearLogFile();
+        
                                 
         if (psVersion) {
             osa(
@@ -77,13 +81,27 @@
     
    /**
      * @private
+     * Function to save clear the log file at the beginning of the script
+     * @param {string} Text to be saved to tmp file.
+     * @return {string} Path to tmp file.
+     */
+    function clearLogFile() {
+        // Locate tmp file
+        var logFile = path.resolve(__dirname, '../tmp/log');
+        // Save to tmp file
+        fs.writeFileSync(logFile, "");
+        return logFile;
+    }
+    
+   /**
+     * @private
      * Function to identify latest Photoshop version
      * @param {string} path to current jsx document.
      * @return {string} Successful string to display in console.
      */
     function identifyPhotoshopVersion() {
         // Possible Photoshop Versions
-        var psVersions = ['Adobe Photoshop CC 2017', 'Adobe Photoshop CC 2016', 'Adobe Photoshop CC 2015', 'Adobe Photoshop CC 2014', 'Adobe Photoshop CS6', 'Adobe Photoshop CS5'],
+        var psVersions = ['Adobe Photoshop CC 2015.5', 'Adobe Photoshop CC 2015', 'Adobe Photoshop CC 2014', 'Adobe Photoshop CS6', 'Adobe Photoshop CS5'],
             foundPSVersion = false;
         
         for (var i = 0; i < psVersions.length; i++){

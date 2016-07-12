@@ -17,7 +17,7 @@ The extension will determine your latest Photoshop version installed and execute
 
 Currently supported Photoshop versions:
 
-- Adobe Photoshop CC 2016
+- Adobe Photoshop CC 2015.5
 - Adobe Photoshop CC 2015
 - Adobe Photoshop CC 2014
 - Adobe Photoshop CS6
@@ -26,6 +26,16 @@ Currently supported Photoshop versions:
 A console will show up at the bottom displaying any messages returned from Photoshop. Errors will display in red.
 
 ![br-ps-console](https://raw.githubusercontent.com/JavierAroche/brackets-to-photoshop/master/images/br-ps-console.jpg)
+
+## Changelog
+
+v0.0.2 (Jul 12 2016)
+-----
+*   Added Photoshop CC 2015.5 compatibility.
+
+v0.0.1 (Apr 25 2016)
+-----
+*   Initial development.
 
 ### License
 MIT-licensed
