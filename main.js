@@ -37,27 +37,33 @@ define(function (require, exports, module) {
     'use strict';
 
     // Brackets Modules
-    var DocumentManager     = brackets.getModule("document/DocumentManager"),
-        Dialogs             = brackets.getModule("widgets/Dialogs"),
-        AppInit             = brackets.getModule("utils/AppInit"),
-        NodeDomain          = brackets.getModule("utils/NodeDomain"),
-        ExtensionUtils      = brackets.getModule("utils/ExtensionUtils"),
-        WorkspaceManager    = brackets.getModule("view/WorkspaceManager"),
-        CommandManager      = brackets.getModule('command/CommandManager'),
-        KeyBindingManager   = brackets.getModule("command/KeyBindingManager");
+    var DocumentManager     = brackets.getModule( 'document/DocumentManager' ),
+        Dialogs             = brackets.getModule( 'widgets/Dialogs' ),
+        AppInit             = brackets.getModule( 'utils/AppInit' ),
+        NodeDomain          = brackets.getModule( 'utils/NodeDomain' ),
+        ExtensionUtils      = brackets.getModule( 'utils/ExtensionUtils' ),
+        WorkspaceManager    = brackets.getModule( 'view/WorkspaceManager' ),
+        CommandManager      = brackets.getModule( 'command/CommandManager' ),
+        KeyBindingManager   = brackets.getModule( 'command/KeyBindingManager' );
     
     // Load domain
-    var PhotoshopDomain_path = ExtensionUtils.getModulePath(module, 'node/PhotoshopDomain');
-    var photoshop = new NodeDomain('Br-Ps', PhotoshopDomain_path);
+    var PhotoshopDomain_path = ExtensionUtils.getModulePath(module, 'lib/PhotoshopDomain');
+    var photoshop            = new NodeDomain('Br-Ps', PhotoshopDomain_path);
     
     var panelHTML = require("text!html/console.html"),
-        panel, $panel, $clearBtn, $console, $closeBtn, $psVersion, message;
+        panel,
+        $panel,
+        $clearBtn,
+        $console,
+        $closeBtn,
+        $psVersion,
+        message;
         
     // Validate current document
     function _validateCurrentDocument() {
         // Get info of working file
-        var currentDoc = {};
-        currentDoc.doc = DocumentManager.getCurrentDocument();
+        var currentDoc  = {};
+        currentDoc.doc  = DocumentManager.getCurrentDocument();
         currentDoc.text = currentDoc.doc.getText();
         
         _sendToDomain(currentDoc);
@@ -73,7 +79,7 @@ define(function (require, exports, module) {
             .done(function (result) {
                 console.log(result);
             }).fail(function (err) {
-                 console.error("Br-Ps: Failed to execute command 'runJSX' - " + err);
+                console.error("Br-Ps: Failed to execute command 'runJSX' - " + err);
             });
     }
 
@@ -82,27 +88,27 @@ define(function (require, exports, module) {
         panel.show();
     }
     
-    function _sendToConsole(message, type) {
-        message = _filerErrors(message);
+    function _sendToConsole( message, type ) {
+        message = _filerErrors( message );
         
-        if (message) {
-            $console.append('<li class="' + type + '">' + message + '</li>');
+        if ( message ) {
+            $console.append('<li class="' + type + '"><pre>' + message + '</pre></li>');
             $console.scrollTop = $console.scrollHeight;
+
+            _updateScroll();
         }
-        
-        _updateScroll();
     }
     
-    function _filerErrors(message) {
-        if (message.search('Br-Ps') !== -1) {
+    function _filerErrors( message ) {
+        if ( message.search( 'Br-Ps' ) !== -1) {
             return message;
         }
     }
     
-    function _displayPSVersion(message) {        
-        message = _filerErrors(message);
+    function _displayPSVersion( message ) {        
+        message = _filerErrors( message );
         
-        message = message.split(':');
+        message = message.split( ':' );
         message = message[message.length -1];
         
         $psVersion.html(message);
@@ -117,7 +123,7 @@ define(function (require, exports, module) {
     }
     
     function _updateScroll(){
-        var element = document.getElementById("br-ps-console");
+        var element       = document.getElementById("br-ps-console");
         element.scrollTop = element.scrollHeight;
     }
 
@@ -127,11 +133,11 @@ define(function (require, exports, module) {
         // RunJSX Icon
         ExtensionUtils.loadStyleSheet(module, "styles/styles.css");
         $(document.createElement("a"))
-        .attr("id", "br-ps")
-        .attr("href", "#")
-        .attr("title", "Brackets to Photoshop")
-        .on("click", _validateCurrentDocument)
-        .appendTo($("#main-toolbar .buttons"));
+            .attr("id", "br-ps")
+            .attr("href", "#")
+            .attr("title", "Brackets to Photoshop")
+            .on("click", _validateCurrentDocument)
+            .appendTo($("#main-toolbar .buttons"));
         
         // Set key binding
         var keyboardShortcut_ID = "brackets-to-photoshop.run";
@@ -142,10 +148,10 @@ define(function (require, exports, module) {
         panel = WorkspaceManager.createBottomPanel("brackets-to-photoshop.panel", $(panelHTML));
         
         // Get html items
-        $panel = $('#br-ps-panel');
-        $clearBtn = $panel.find('#clearBtn');
-        $console = $panel.find('.resizable-content ul');
-        $closeBtn = $panel.find('.close');
+        $panel     = $('#br-ps-panel');
+        $clearBtn  = $panel.find('#clearBtn');
+        $console   = $panel.find('.resizable-content ul');
+        $closeBtn  = $panel.find('.close');
         $psVersion = $panel.find('#psVersion');
         
         // On-clicks
