@@ -15,8 +15,10 @@ function Console() {
 	this.newDate;
 	this.newTime;
 	this.logType;
+	
 	// Receive file path
-	this.write_file = File(File($.fileName).parent.parent + '/tmp/log.txt');
+	this.write_file = File( File( $.fileName ).parent.parent + '/tmp/log.txt' );
+	// Clear the log file
 	this.clear();
 }
 
@@ -27,7 +29,7 @@ function Console() {
  */
 Console.prototype.clear = function() {
 	// Open the file
-	this.write_file.open('w', undefined, undefined);
+	this.write_file.open( 'w', undefined, undefined );
 	this.write_file.encoding = "UTF-8";
 	this.write_file.close();
 }
@@ -37,9 +39,9 @@ Console.prototype.clear = function() {
  * Handler function to write a message to the log.txt file
  * @param {string} message to be logged
  */
-Console.prototype.writeToFile = function(message) {
+Console.prototype.writeToFile = function( message ) {
 	// Open the file
-	this.write_file.open('a', undefined, undefined);
+	this.write_file.open( 'a', undefined, undefined );
 	this.write_file.encoding = "UTF-8";
 
 	// Write message to file
@@ -52,50 +54,50 @@ Console.prototype.writeToFile = function(message) {
 
 /*
  * @public
- * Handler function to log a message to the log.txt file
+ * Handler function to write a log message to the log.txt file
  * @param {string} message to be logged
  */
-Console.prototype.log = function(message) {
+Console.prototype.log = function( message ) {
 	this.logType = 'log';
-	this.writeToFile(message);
+	this.writeToFile( message );
 }
 
 /*
  * @public
- * Handler function to log a message to the log.txt file
+ * Handler function to write a warn message to the log.txt file
  * @param {string} message to be logged
  */
-Console.prototype.warn = function(message) {
+Console.prototype.warn = function( message ) {
 	this.logType = 'warn';
-	this.writeToFile(message);
+	this.writeToFile( message );
 }
 
 /*
  * @public
- * Handler function to log a message to the log.txt file
+ * Handler function to write an error message to the log.txt file
  * @param {string} message to be logged
  */
-Console.prototype.error = function(message) {
+Console.prototype.error = function( message ) {
 	this.logType = 'error';
-	this.writeToFile(message);
+	this.writeToFile( message );
 }
 
 /*
  * @public
- * Handler function to log a message to the log.txt file
+ * Handler function to write an info message to the log.txt file
  * @param {string} message to be logged
  */
-Console.prototype.info = function(message) {
+Console.prototype.info = function( message ) {
 	this.logType = 'info';
-	this.writeToFile(message);
+	this.writeToFile( message );
 }
 
 /*
  * @public
- * Handler function to log a message to the log.txt file
+ * Handler function to write a stringified message to the log.txt file
  * @param {string} message to be logged
  */
-Console.prototype.stringify = function(message) {
+Console.prototype.stringify = function( message ) {
 	this.logType = 'stringify';
 	this.writeToFile( JSON.stringify( message, null, "    " ) );
 }
