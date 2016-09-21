@@ -62,20 +62,25 @@ define(function (require, exports, module) {
     // Validate current document
     function _validateCurrentDocument() {
         // Get info of working file
-        var currentDoc  = {};
-        currentDoc.doc  = DocumentManager.getCurrentDocument();
-        currentDoc.text = currentDoc.doc.getText();
+        var currentDoc = DocumentManager.getCurrentDocument();
+        var currentDocInfo = {
+            path    : currentDoc.file.fullPath,
+            isDirty : currentDoc.isDirty,
+            text    : currentDoc.getText()
+        };
         
-        _sendToDomain(currentDoc);
+        if ( currentDocInfo.text !== '' ) {
+            _sendToDomain(currentDocInfo);
+        }
     }
     
     // Send command to BracketsToPS domain
-    function _sendToDomain(currentDoc) {
+    function _sendToDomain(currentDocInfo) {
         // Show console
         _showConsolePanel();
         
         // Connect to domain - execute 'runJSX'
-        photoshop.exec('runJSX', currentDoc.text)
+        photoshop.exec('runJSX', currentDocInfo)
             .done(function (result) {
                 console.log(result);
             }).fail(function (err) {
