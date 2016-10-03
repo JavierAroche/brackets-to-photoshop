@@ -37,18 +37,18 @@ define(function (require, exports, module) {
     'use strict';
 
     // Brackets Modules
-    var DocumentManager     = brackets.getModule( 'document/DocumentManager' ),
-        Dialogs             = brackets.getModule( 'widgets/Dialogs' ),
-        AppInit             = brackets.getModule( 'utils/AppInit' ),
-        NodeDomain          = brackets.getModule( 'utils/NodeDomain' ),
-        ExtensionUtils      = brackets.getModule( 'utils/ExtensionUtils' ),
-        WorkspaceManager    = brackets.getModule( 'view/WorkspaceManager' ),
-        CommandManager      = brackets.getModule( 'command/CommandManager' ),
-        KeyBindingManager   = brackets.getModule( 'command/KeyBindingManager' );
+    var DocumentManager   = brackets.getModule( 'document/DocumentManager' ),
+        Dialogs           = brackets.getModule( 'widgets/Dialogs' ),
+        AppInit           = brackets.getModule( 'utils/AppInit' ),
+        NodeDomain        = brackets.getModule( 'utils/NodeDomain' ),
+        ExtensionUtils    = brackets.getModule( 'utils/ExtensionUtils' ),
+        WorkspaceManager  = brackets.getModule( 'view/WorkspaceManager' ),
+        CommandManager    = brackets.getModule( 'command/CommandManager' ),
+        KeyBindingManager = brackets.getModule( 'command/KeyBindingManager' );
     
     // Load domain
-    var PhotoshopDomain_path = ExtensionUtils.getModulePath(module, 'lib/PhotoshopDomain');
-    var photoshop            = new NodeDomain('Br-Ps', PhotoshopDomain_path);
+    var DomainManager_path = ExtensionUtils.getModulePath(module, 'lib/DomainManager');
+    var DomainManager      = new NodeDomain('Br-Ps', DomainManager_path);
     
     var panelHTML = require("text!html/console.html"),
         panel,
@@ -59,7 +59,10 @@ define(function (require, exports, module) {
         $psVersion,
         message;
         
-    // Validate current document
+    /*
+     * @private
+     * Function to validate and get the properties of the current document
+     */
     function _validateCurrentDocument() {
         // Get info of working file
         var currentDoc = DocumentManager.getCurrentDocument();
@@ -68,19 +71,21 @@ define(function (require, exports, module) {
             isDirty : currentDoc.isDirty,
             text    : currentDoc.getText()
         };
-        
+
         if ( currentDocInfo.text !== '' ) {
             _sendToDomain(currentDocInfo);
         }
     }
-    
-    // Send command to BracketsToPS domain
+
+    /*
+     * @private
+     * Function to connect to the Domain Manager
+     */
     function _sendToDomain(currentDocInfo) {
-        // Show console
         _showConsolePanel();
         
-        // Connect to domain - execute 'runJSX'
-        photoshop.exec('runJSX', currentDocInfo)
+        // Connect to domain - execute 'main' function
+        DomainManager.exec('main', currentDocInfo)
             .done(function (result) {
                 console.log(result);
             }).fail(function (err) {
@@ -88,11 +93,18 @@ define(function (require, exports, module) {
             });
     }
 
-    // Panel functions  
+    /*
+     * @private
+     * Function to show the console in Brackets
+     */ 
     function _showConsolePanel() {
         panel.show();
     }
     
+    /*
+     * @private
+     * Function to send a message to the console in Brackets
+     */
     function _sendToConsole( message, type ) {
         message = _filerErrors( message );
         
@@ -104,12 +116,21 @@ define(function (require, exports, module) {
         }
     }
     
+    /*
+     * @private
+     * Function to filter the messages to display in the console
+     * @return {string} message to be displayed
+     */
     function _filerErrors( message ) {
         if ( message.search( 'Br-Ps' ) !== -1) {
             return message;
         }
     }
     
+    /*
+     * @private
+     * Function to display the current Application executing the script in the console
+     */
     function _displayPSVersion( message ) {        
         message = _filerErrors( message );
         
@@ -119,20 +140,35 @@ define(function (require, exports, module) {
         $psVersion.html(message);
     }
     
+    /*
+     * @private
+     * Function to clear the console in Brackets
+     */
     function clearConsole() {
         $console.html("");
     }
     
+    /*
+     * @private
+     * Function to hide the console in Brackets
+     */
     function hideConsolePanel() {
         panel.hide();
     }
     
+    /*
+     * @private
+     * Function to update the scroll position to display the last maessage
+     */
     function _updateScroll(){
         var element       = document.getElementById("br-ps-console");
         element.scrollTop = element.scrollHeight;
     }
 
-    // Loaded Brackets
+    /*
+     * @public
+     * Function to execute when Brackets has loaded
+     */
     AppInit.appReady(function () {
         
         // RunJSX Icon
@@ -152,7 +188,7 @@ define(function (require, exports, module) {
         // Create panel
         panel = WorkspaceManager.createBottomPanel("brackets-to-photoshop.panel", $(panelHTML));
         
-        // Get html items
+        // Get HTML items
         $panel     = $('#br-ps-panel');
         $clearBtn  = $panel.find('#clearBtn');
         $console   = $panel.find('.resizable-content ul');
@@ -163,7 +199,10 @@ define(function (require, exports, module) {
         $clearBtn.click(clearConsole);
         $closeBtn.click(hideConsolePanel);
         
-        // Get Console logs / warnings / errors
+        /*
+         * Extend console functions to be filtered and displayed in Brackets console
+         * console.log / console.warn / console.error / console.info
+         */
         var _log   = console.log,
             _warn  = console.warn,
             _error = console.error,
@@ -193,6 +232,7 @@ define(function (require, exports, module) {
         console.info = function() {
             var arg = arguments;
 
+            // Using console.info only to find the Application logged from Domain
             _displayPSVersion(arg[0]);
             return _info.apply(console, arguments);
         };
