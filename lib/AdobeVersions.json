@@ -1,0 +1,46 @@
+{
+	"photoshop" : {
+		"photoshop-100" : "Adobe Photoshop CC 2015.5",
+		"photoshop-90" : "Adobe Photoshop CC 2015",
+		"photoshop-80" : "Adobe Photoshop CC 2014",
+		"photoshop-70" : "Adobe Photoshop CC",
+		"photoshop-60" : "Adobe Photoshop CS6",
+		"photoshop-50" : "Adobe Photoshop CS5"
+	},
+
+	"illustrator" : {
+		"illustrator-20" : "Adobe Illustrator CC 2015.3",
+		"illustrator-19.2" : "Adobe Illustrator CC 2015.2",
+		"illustrator-19.0" : "Adobe Illustrator CC 2015",
+		"illustrator-18" : "Adobe Illustrator CC 2014",
+		"illustrator-17" : "Adobe Illustrator CC",
+		"illustrator-16" : "Adobe Illustrator CS6",
+		"illustrator-15" : "Adobe Illustrator CS5"
+	},
+
+	"aftereffects" : {
+		"aftereffects-13.8" : "Adobe After Effects CC 2015.3",
+		"aftereffects-13.7" : "Adobe After Effects CC 2015.2",
+		"aftereffects-13.6" : "Adobe After Effects CC 2015.1",
+		"aftereffects-13.5" : "Adobe After Effects CC 2015",
+		"aftereffects-13" : "Adobe After Effects CC 2014",
+		"aftereffects-12" : "Adobe After Effects CC",
+		"aftereffects-11" : "Adobe After Effects CS6",
+		"aftereffects-10" : "Adobe After Effects CS5"  
+	},
+
+	"indesign" : {
+		"indesign-11.4" : "Adobe InDesign CC 2015.4",
+		"indesign-11.2" : "Adobe InDesign CC 2015.2",
+		"indesign-11.1" : "Adobe InDesign CC 2015.1",
+		"indesign-11" : "Adobe InDesign CC 2015",
+		"indesign-10" : "Adobe InDesign CC 2014",
+		"indesign-9" : "Adobe InDesign CC",
+		"indesign-8" : "Adobe InDesign CS6",
+		"indesign-7" : "Adobe InDesign CS5"
+	},
+
+	"bridge" : {
+		"bridge" : "Adobe Bridge CC"
+	}
+}
