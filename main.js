@@ -122,7 +122,7 @@ define(function (require, exports, module) {
      * @return {string} message to be displayed
      */
     function _filerErrors( message ) {
-        if ( message.search( 'Br-Ps' ) !== -1) {
+        if ( typeof message == "string" && message.toString().indexOf( 'Br-Ps' ) !== -1) {
             return message;
         }
     }
