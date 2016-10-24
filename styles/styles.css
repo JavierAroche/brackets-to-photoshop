@@ -34,6 +34,14 @@
     color: grey;
 }
 
+#executionTime {
+    float: right;
+    padding-right: 5px;
+    font-size: 11px;
+    font-kerning: 50;
+    color: grey;
+}
+
 #br-ps-panel .resizable-content {
     overflow: scroll;
     height: 100px;
