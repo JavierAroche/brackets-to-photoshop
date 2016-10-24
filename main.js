@@ -57,6 +57,7 @@ define(function (require, exports, module) {
         $console,
         $closeBtn,
         $psVersion,
+        $executionTime,
         message;
         
     /*
@@ -86,10 +87,10 @@ define(function (require, exports, module) {
         
         // Connect to domain - execute 'main' function
         DomainManager.exec('main', currentDocInfo)
-            .done(function (result) {
-                console.log(result);
-            }).fail(function (err) {
-                console.error("Br-Ps: Failed to execute command 'runJSX' - " + err);
+            .done(function ( result ) {
+                console.log( result );
+            }).fail(function ( err ) {
+                console.error( "Br-Ps: Failed to execute command 'runJSX' - " + err );
             });
     }
 
@@ -106,7 +107,17 @@ define(function (require, exports, module) {
      * Function to send a message to the console in Brackets
      */
     function _sendToConsole( message, type ) {
-        message = _filerErrors( message );
+        var message = _filerErrors( message );
+
+        if ( message.indexOf('PSVersion') !== -1 ) {
+            _displayPSVersion( message );
+            return true;
+        }
+
+        if ( message.indexOf('ExecutionTime') !== -1 ) {
+            _displayExecutionTime( message );
+            return true;
+        }
         
         if ( message ) {
             $console.append('<li class="' + type + '"><pre>' + message + '</pre></li>');
@@ -122,7 +133,7 @@ define(function (require, exports, module) {
      * @return {string} message to be displayed
      */
     function _filerErrors( message ) {
-        if ( typeof message == "string" && message.toString().indexOf( 'Br-Ps' ) !== -1) {
+        if ( message && typeof message == "string" && message.toString().indexOf( 'Br-Ps' ) !== -1 ) {
             return message;
         }
     }
@@ -132,12 +143,21 @@ define(function (require, exports, module) {
      * Function to display the current Application executing the script in the console
      */
     function _displayPSVersion( message ) {        
-        message = _filerErrors( message );
-        
         message = message.split( ':' );
-        message = message[message.length -1];
+        message = message[message.length - 1];
         
-        $psVersion.html(message);
+        $psVersion.html( message );
+    }
+
+    /*
+     * @private
+     * Function to display the current Application executing the script in the console
+     */
+    function _displayExecutionTime( message ) {        
+        message = message.split( ':' );
+        message = message[message.length - 2] + ': ' + message[message.length - 1];
+
+        $executionTime.html( message );
     }
     
     /*
@@ -145,7 +165,8 @@ define(function (require, exports, module) {
      * Function to clear the console in Brackets
      */
     function clearConsole() {
-        $console.html("");
+        $console.html( '' );
+        $executionTime.html( '' );
     }
     
     /*
@@ -189,11 +210,12 @@ define(function (require, exports, module) {
         panel = WorkspaceManager.createBottomPanel("brackets-to-photoshop.panel", $(panelHTML));
         
         // Get HTML items
-        $panel     = $('#br-ps-panel');
-        $clearBtn  = $panel.find('#clearBtn');
-        $console   = $panel.find('.resizable-content ul');
-        $closeBtn  = $panel.find('.close');
-        $psVersion = $panel.find('#psVersion');
+        $panel         = $('#br-ps-panel');
+        $clearBtn      = $panel.find('#clearBtn');
+        $console       = $panel.find('.resizable-content ul');
+        $closeBtn      = $panel.find('.close');
+        $psVersion     = $panel.find('#psVersion');
+        $executionTime = $panel.find('#executionTime');
         
         // On-clicks
         $clearBtn.click(clearConsole);
@@ -233,7 +255,7 @@ define(function (require, exports, module) {
             var arg = arguments;
 
             // Using console.info only to find the Application logged from Domain
-            _displayPSVersion(arg[0]);
+            _sendToConsole(arg[0], 'log');
             return _info.apply(console, arguments);
         };
     });
