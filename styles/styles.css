@@ -34,28 +34,48 @@
     color: grey;
 }
 
+#executionTime {
+    float: right;
+    padding-right: 5px;
+    font-size: 11px;
+    font-kerning: 50;
+    color: grey;
+}
+
 #br-ps-panel .resizable-content {
     overflow: scroll;
     height: 100px;
+    width: 100%;
 }
 
-#br-ps-panel .resizable-content ul {
-    margin-left: 5px;
-    padding: 0 0;
-}
-
-#br-ps-panel li.log {
+#br-ps-panel li {
     list-style-type: none;
+    margin-left: -20px;
+    -webkit-user-select: all;
+}
+
+#br-ps-panel li:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#br-ps-panel pre {
+    border: 0;
+    background-color: transparent;
+    padding: 3px 3px;
+    margin: 0 0;
+    font-size: 11px;
     color: #ffffff;
 }
 
-#br-ps-panel li.warn {
-    list-style-type: none;
+#br-ps-panel li.log pre {
+    color: #ffffff;
+}
+
+#br-ps-panel li.warn pre {
     color: #e4d700;
 }
 
-#br-ps-panel li.error {
-    list-style-type: none;
+#br-ps-panel li.error pre {
     color: #e40000;
 }
 
