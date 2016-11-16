@@ -32,8 +32,21 @@ A console will show up at the bottom displaying any messages returned from Photo
 
 ### Console Features
 
-- JSON and Array polyfill to use functions such as JSON.stringify, JSON.parse and Array.forEach
-- Added ability to $.write and $.writeln to the console
+JSON polyfill included to use the following functions:
+- JSON.stringify
+- JSON.parse
+- Array.forEach
+
+Array polyfill included to use the following functions:
+- Array.forEach
+
+Added ability to log information to the console and use functions such as:
+- console.log
+- console.error
+- console.info
+- console.stringify (Logs to the console using JSON.stringify)
+- $.write
+- $.writeln
 
 ### Changelog
 
