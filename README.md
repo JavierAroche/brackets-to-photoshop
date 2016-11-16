@@ -37,6 +37,10 @@ A console will show up at the bottom displaying any messages returned from Photo
 
 ### Changelog
 
+#### v0.0.4 (Nov 15 2016)
+-----
+*   Bug Fix: Encoded paths to be included to avoid special characters
+
 #### v0.0.3 (Nov 15 2016)
 -----
 *   Restructured brackets-to-photoshop plugin
