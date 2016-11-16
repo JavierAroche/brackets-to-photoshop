@@ -50,6 +50,10 @@ Added ability to log information to the console and use functions such as:
 
 ### Changelog
 
+#### v0.0.5 (Nov 16 2016)
+-----
+*   Fix: Updated error handling on exec to display a more accurate error in the console
+
 #### v0.0.4 (Nov 15 2016)
 -----
 *   Bug Fix: Encoded paths to be included to avoid special characters
