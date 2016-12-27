@@ -28,8 +28,12 @@ Array.prototype.forEach||(Array.prototype.forEach=function(r,t){var o,n;if(null=
  */
 function ExtendScriptWrite( message ) {
 	// Send message to console
-	if ( !( message instanceof Array ) ) {
-		console.log( JSON.stringify( message, null, "    ") );
+	if ( typeof message == 'object' ) {
+		if(message instanceof Array) {
+			console.log( JSON.stringify( message ) );
+		} else {
+			console.log( JSON.stringify( message, null, 4) );
+		}
 	} else {
 		console.log( message );
 	}
