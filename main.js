@@ -6,30 +6,6 @@
  *
  */
 
-/*
- * The MIT License (MIT)
- *
- * Copyright (c) 2016 Javier Aroche
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50 */
 /*global define, $, brackets, window */
 
@@ -107,24 +83,26 @@ define(function (require, exports, module) {
      * Function to send a message to the console in Brackets
      */
     function _sendToConsole( message, type ) {
-        var message = _filerErrors( message );
+		try {
+			var message = _filerErrors( message );
 
-        if ( message.indexOf('PSVersion') !== -1 ) {
-            _displayPSVersion( message );
-            return true;
-        }
+			if ( message.indexOf('PSVersion') !== -1 ) {
+				_displayPSVersion( message );
+				return true;
+			}
 
-        if ( message.indexOf('ExecutionTime') !== -1 ) {
-            _displayExecutionTime( message );
-            return true;
-        }
-        
-        if ( message ) {
-            $console.append('<li class="' + type + '"><pre>' + message + '</pre></li>');
-            $console.scrollTop = $console.scrollHeight;
+			if ( message.indexOf('ExecutionTime') !== -1 ) {
+				_displayExecutionTime( message );
+				return true;
+			}
 
-            _updateScroll();
-        }
+			if ( message ) {
+				$console.append('<li class="' + type + '"><pre>' + message + '</pre></li>');
+				$console.scrollTop = $console.scrollHeight;
+
+				_updateScroll();
+			}
+		} catch( err ) { };
     }
     
     /*
