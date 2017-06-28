@@ -1,3 +1,7 @@
+#br-ps-toolbar-icon {
+	background: url('icons/br-ps.svg') no-repeat left top transparent;
+}
+
 #br-ps-panel {
     z-index: 100;
 }

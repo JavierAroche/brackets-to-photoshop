@@ -173,7 +173,7 @@ define(function (require, exports, module) {
         // RunJSX Icon
         ExtensionUtils.loadStyleSheet(module, "styles/styles.css");
         $(document.createElement("a"))
-            .attr("id", "br-ps")
+            .attr("id", "br-ps-toolbar-icon")
             .attr("href", "#")
             .attr("title", "Brackets to Photoshop")
             .on("click", _validateCurrentDocument)
