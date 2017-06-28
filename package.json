@@ -1,20 +1,20 @@
 {
-  "name": "brackets-to-photoshop",
-  "title": "Brackets to Photoshop",
-  "description": "Execute a JSX file in Photoshop using osascript",
-  "homepage": "https://github.com/JavierAroche/brackets-to-photoshop",
-  "version": "0.0.5",
-  "author": "Javier Aroche <aroche290@gmail.com> (https://github.com/JavierAroche)",
-  "contributors": "Antonio Gomez <hello@antoniogomez.me> (https://github.com/antonio-gomez)",
-  "license": "MIT",
-  "categories": "utility",
-  "engines": {
-    "brackets": ">=1.0.0"
-  },
-  "keywords": [
-    "jsx",
-    "extendscript",
-    "photoshop",
-    "osascript"
-  ]
+	"name": "brackets-to-photoshop",
+	"title": "Brackets to Photoshop",
+	"description": "Execute a JSX file in Photoshop using osascript",
+	"homepage": "https://github.com/JavierAroche/brackets-to-photoshop",
+	"version": "0.0.5",
+	"author": "Javier Aroche <aroche290@gmail.com> (https://github.com/JavierAroche)",
+	"contributors": "Antonio Gomez <hello@antoniogomez.me> (https://github.com/antonio-gomez)",
+	"license": "MIT",
+	"categories": "utility",
+	"engines": {
+		"brackets": ">=1.0.0"
+	},
+	"keywords": [
+		"jsx",
+		"extendscript",
+		"photoshop",
+		"osascript"
+	]
 }

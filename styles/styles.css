@@ -3,84 +3,84 @@
 }
 
 #br-ps-panel {
-    z-index: 100;
+	z-index: 100;
 }
 
 #br-ps-panel .title {
-    line-height: 25px;
-    padding-left: 25px;
-    background: url('icons/br-ps.svg') no-repeat left top transparent;
+	line-height: 25px;
+	padding-left: 25px;
+	background: url('icons/br-ps.svg') no-repeat left top transparent;
 }
 
 #br-ps-panel #clearBtn {
-    float: right;
-    margin-right: 24px;
-    margin-top: 0px;
-    outline: none;
-    box-shadow: none;
+	float: right;
+	margin-right: 24px;
+	margin-top: 0px;
+	outline: none;
+	box-shadow: none;
 }
 
 #psVersionToolbar {
-    height: 17px;
-    line-height: 15px;
-    background-color: #1d1d1d;
+	height: 17px;
+	line-height: 15px;
+	background-color: #1d1d1d;
 }
 
 #psVersion {
-    padding-left: 5px;
-    font-size: 11px;
-    font-kerning: 50;
-    color: grey;
+	padding-left: 5px;
+	font-size: 11px;
+	font-kerning: 50;
+	color: grey;
 }
 
 #executionTime {
-    float: right;
-    padding-right: 5px;
-    font-size: 11px;
-    font-kerning: 50;
-    color: grey;
+	float: right;
+	padding-right: 5px;
+	font-size: 11px;
+	font-kerning: 50;
+	color: grey;
 }
 
 #br-ps-panel .resizable-content {
-    overflow: scroll;
-    height: 100px;
-    width: 100%;
+	overflow: scroll;
+	height: 100px;
+	width: 100%;
 }
 
 #br-ps-panel li {
-    list-style-type: none;
-    margin-left: -20px;
-    -webkit-user-select: all;
+	list-style-type: none;
+	margin-left: -20px;
+	-webkit-user-select: all;
 }
 
 #br-ps-panel li:nth-child(odd) {
-    background-color: rgba(0, 0, 0, 0.1);
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 #br-ps-panel pre {
-    border: 0;
-    background-color: transparent;
-    padding: 3px 3px;
-    margin: 0 0;
-    font-size: 11px;
-    color: #ffffff;
+	border: 0;
+	background-color: transparent;
+	padding: 3px 3px;
+	margin: 0 0;
+	font-size: 11px;
+	color: #ffffff;
 }
 
 #br-ps-panel li.log pre {
-    color: #ffffff;
+	color: #ffffff;
 }
 
 #br-ps-panel li.warn pre {
-    color: #e4d700;
+	color: #e4d700;
 }
 
 #br-ps-panel li.error pre {
-    color: #e40000;
+	color: #e40000;
 }
 
 #br-ps-panel .close {
-    outline: none;
-    box-shadow: none;
+	outline: none;
+	box-shadow: none;
 }
 
 #br-ps-console::-webkit-scrollbar {
@@ -92,12 +92,12 @@
 }
 
 #br-ps-console::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, .5);
-    border-radius: 9px;
+	background-color: rgba(255, 255, 255, .5);
+	border-radius: 9px;
 	border: 2px solid transparent;
-	background-clip: content-box;  
+	background-clip: content-box;
 }
 
-#br-ps-console::-webkit-scrollbar-corner { 
+#br-ps-console::-webkit-scrollbar-corner {
 	background-color: rgba(0, 0, 0, 0.5);
 }
