@@ -1,7 +1,7 @@
 # Anatomy of a log
 
 ## Successful execution
-```
+```javascript
 function foo() {
     return app.name;
 }
@@ -14,7 +14,7 @@ Breakdown:
 * `Result: Adobe Photoshop` --> Message received from the Adobe application mimicking ExtendScript's "Result:" log
 
 ## console.log
-```
+```javascript
 console.log( 'Hello' );
 // Returns: [node-log 4:16:02 PM] Br-Ps: [log: 16:16:2.649] Hello
 ```
@@ -25,7 +25,7 @@ Breakdown:
 * `Hello` --> Message received from the Adobe application
 
 ## Error in execution
-```
+```javascript
 return app.name;
 // Returns: [node-error 4:57:52 PM] Br-Ps: 78:256: execution error: Adobe Photoshop CC 2015 got an error: General Photoshop error occurred. This functionality may not be available in this version of Photoshop.
 - Error 30: Illegal 'return' outside of a function body.

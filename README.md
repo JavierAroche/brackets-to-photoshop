@@ -18,7 +18,7 @@ Click on the `Brackets to Photoshop` button on your right sidebar, or hit the sh
 #### Target Adobe Applications
 Target specific [Adobe applications and versions](https://github.com/JavierAroche/brackets-to-photoshop/blob/master/lib/AdobeVersions.json) in your code by using ExtendScript's #target. Photoshop is the default application.
 
-```
+```javascript
 /* Photoshop */
 #target photoshop           // Latest Photoshop version installed
 #target photoshop-120       // Adobe Photoshop CC 2018
@@ -74,7 +74,7 @@ Target specific [Adobe applications and versions](https://github.com/JavierAroch
 
 #### Include external files
 If your script file is saved, the extension will load your script path and execute it. This makes it easier to use ExtendScript's #include to load relative external files.
-```
+```javascript
 #include "~/Development/personal/descriptor-info/jsx/descriptor-info.jsx"
 ```
 
@@ -90,7 +90,7 @@ brackets-to-photoshop includes by default 3 JavaScript polyfills, which you can 
 This extension has an internal module that recreates JavaScript's console module, including a way to log a JSON.stringify response.
 
 You can use functions in your code such as:
-```
+```javascript
 console.log( 'Hello' );
 // Returns: [node-log 4:16:02 PM] Br-Ps: [log: 16:16:2.649] Hello
 
@@ -107,7 +107,7 @@ console.stringify( { foo : 'bar' } );
 ```
 
 This extension also allows the use of ExtendScript's native $.write and $.writeln functions to log to the console using JSON.stringify.
-```
+```javascript
 $.writeln( "Hello" );
 // Returns: [node-log 4:20:34 PM] Br-Ps: [log: 16:20:34.337] "Hello"
 
@@ -116,7 +116,7 @@ $.write( "Hello" );
 ```
 
 ## Anatomy of a log
-[Anatomy-of-a-log](Anatomy-of-a-log.md)
+[Anatomy-of-a-log](Anatomy-Of-A-Log.md)
 
 ## Console
 A console will show up at the bottom of your editor displaying any messages returned from the executed script. Errors will display in red.
