@@ -3,7 +3,7 @@
   "title": "Brackets to Photoshop",
   "description": "Execute a JSX file in Photoshop using osascript",
   "homepage": "https://github.com/JavierAroche/brackets-to-photoshop",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Javier Aroche <aroche290@gmail.com> (https://github.com/JavierAroche)",
   "contributors": "Antonio Gomez <hello@antoniogomez.me> (https://github.com/antonio-gomez)",
   "license": "MIT",
