@@ -6,6 +6,9 @@
 	"version": "0.0.5",
 	"author": "Javier Aroche <aroche290@gmail.com> (https://github.com/JavierAroche)",
 	"contributors": "Antonio Gomez <hello@antoniogomez.me> (https://github.com/antonio-gomez)",
+	"scripts": {
+		"zip": "git archive --format zip -o brackets-to-photoshop.zip master"
+	},
 	"license": "MIT",
 	"categories": "utility",
 	"engines": {
