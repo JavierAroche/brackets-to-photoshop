@@ -1,5 +1,6 @@
 {
 	"photoshop" : {
+		"photoshop-120" : "Adobe Photoshop CC 2018",
 		"photoshop-110" : "Adobe Photoshop CC 2017",
 		"photoshop-100" : "Adobe Photoshop CC 2015.5",
 		"photoshop-90" : "Adobe Photoshop CC 2015",
@@ -10,6 +11,8 @@
 	},
 
 	"illustrator" : {
+		"illustrator-22" : "Adobe Illustrator CC 2017",
+		"illustrator-21" : "Adobe Illustrator CC 2018",
 		"illustrator-20" : "Adobe Illustrator CC 2015.3",
 		"illustrator-19.2" : "Adobe Illustrator CC 2015.2",
 		"illustrator-19.0" : "Adobe Illustrator CC 2015",
@@ -20,6 +23,8 @@
 	},
 
 	"aftereffects" : {
+		"aftereffects-15" : "Adobe After Effects CC 2018",
+		"aftereffects-14" : "Adobe After Effects CC 2017",
 		"aftereffects-13.8" : "Adobe After Effects CC 2015.3",
 		"aftereffects-13.7" : "Adobe After Effects CC 2015.2",
 		"aftereffects-13.6" : "Adobe After Effects CC 2015.1",
@@ -27,10 +32,12 @@
 		"aftereffects-13" : "Adobe After Effects CC 2014",
 		"aftereffects-12" : "Adobe After Effects CC",
 		"aftereffects-11" : "Adobe After Effects CS6",
-		"aftereffects-10" : "Adobe After Effects CS5"  
+		"aftereffects-10" : "Adobe After Effects CS5"
 	},
 
 	"indesign" : {
+		"indesign-13" : "Adobe InDesign CC 2018",
+		"indesign-12" : "Adobe InDesign CC 2017",
 		"indesign-11.4" : "Adobe InDesign CC 2015.4",
 		"indesign-11.2" : "Adobe InDesign CC 2015.2",
 		"indesign-11.1" : "Adobe InDesign CC 2015.1",
