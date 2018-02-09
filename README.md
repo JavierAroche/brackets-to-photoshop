@@ -115,8 +115,7 @@ $.write( "Hello" );
 // Returns: [node-log 4:20:37 PM] Br-Ps: [log: 16:20:37.171] "Hello"
 ```
 
-## Anatomy of a log
-[Anatomy-of-a-log](Anatomy-Of-A-Log.md)
+#### [Anatomy-of-a-log](Anatomy-Of-A-Log.md)
 
 ## Console
 A console will show up at the bottom of your editor displaying any messages returned from the executed script. Errors will display in red.
@@ -129,8 +128,7 @@ The console includes a "Running Application" and an "Execution Time" stamp and a
 * This extension uses Photoshop's AppleScript API, so it will only work for MacOS users at the moment.
 * AppleScript has a hard time targeting specific versions of Illustrator, After Effects and Bridge.
 
-## Changelog
-[CHANGELOG](CHANGELOG.md)
+#### [CHANGELOG](CHANGELOG.md)
 
 ## License
 MIT © Javier Aroche
