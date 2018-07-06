@@ -1,7 +1,8 @@
 # Brackets-to-Photoshop
+![npm-image](https://img.shields.io/badge/brackets%20to%20photoshop-v0.0.6-09bc00.svg) [![Downloads](https://badges.ml/brackets-to-photoshop/total.svg)](https://brackets-extension-badges.github.io#brackets-to-photoshop)
 
 ## Description
-Brackets to Photoshop is an extension for [Brackets](https://github.com/adobe/brackets/) that allows you to execute a JSX file in Photoshop.
+[Brackets](https://github.com/adobe/brackets/) extension to execute a JSX file in Photoshop.
 
 ## Install
 Search for `Brackets-To-Photoshop` in the Extension Manager.
@@ -128,7 +129,8 @@ The console includes a "Running Application" and an "Execution Time" stamp and a
 * This extension uses Photoshop's AppleScript API, so it will only work for MacOS users at the moment.
 * AppleScript has a hard time targeting specific versions of Illustrator, After Effects and Bridge.
 
-#### [CHANGELOG](CHANGELOG.md)
+## Changelog
+[See the CHANGELOG](CHANGELOG.md)
 
 ## License
 MIT © Javier Aroche
